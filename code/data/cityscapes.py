@@ -17,12 +17,16 @@ class cityscapes(srdata.SRData):
     def _scan(self):
         list_hr = []
         list_lr = [[] for _ in self.scale]
+        
         if self.train:
             idx_begin = 0
             idx_end = self.args.n_train
+            print("Train")
         else:
             idx_begin = self.args.n_train
             idx_end = self.args.offset_val + self.args.n_val
+            print("test")
+        print('path_hr {}, path_lr {},{}-{}'.format(self.dir_hr, self.dir_lr, idx_begin, idx_end))
 
         for i in range(idx_begin, idx_end):
             filename = '{:0>4}'.format(i)
