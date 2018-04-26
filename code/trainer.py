@@ -47,11 +47,11 @@ class Trainer():
 
             timer_data.hold()
             timer_model.tic()
+            print(batch)
 
             self.optimizer.zero_grad()
             sr = self.model(lr, self.args.scale[idx_scale])
             loss = self.loss(sr, hr)
-            print(batch)
             if loss.data[0] < self.args.skip_threshold * self.error_last:
                 loss.backward()
                 self.optimizer.step()
