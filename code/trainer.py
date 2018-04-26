@@ -47,7 +47,7 @@ class Trainer():
 
             timer_data.hold()
             timer_model.tic()
-            print(batch)
+            #print(batch)
 
             self.optimizer.zero_grad()
             sr = self.model(lr, self.args.scale[idx_scale])
