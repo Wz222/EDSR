@@ -9,7 +9,7 @@ import scipy.misc as misc
 import torch
 import torch.utils.data as data
 
-class cityscapes(srdata.SRData):
+class cityscapes_masks(srdata.SRData):
     def __init__(self, args, train=True):
         super(cityscapes, self).__init__(args, train)
         self.repeat = args.test_every // (args.n_train // args.batch_size)
